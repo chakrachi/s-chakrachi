@@ -1,23 +1,10 @@
-<div class="tolight" align="right">
-  <img
-    class="lightsrc"
-    src="https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/sendtolight2.png?alt=media&token=daf94277-e92b-419a-a051-9958419391b0"
-    width="100px"
-    height="100px"
-  />
+<div class="sun" align="right">
+  <img src="{planets.sun}"/>
 </div>
 <div class="moon" align="left">
-  <img
-    class="moonsrc"
-    src="https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/moon.png?alt=media&token=0100ec94-6adc-4b00-984c-12ce21ec140a"
-    width="100px"
-    height="100px"
-  />
+  <img src="{planets.moon}" />
 </div>
-<div class="logo">
-  {name}
-</div>
-
+<div class="logo">{name}</div>
 <div class="stars"></div>
 <div class="twinkling"></div>
 
@@ -26,18 +13,43 @@
       {#each chakras as chi, i}
         {#if (i+1)%2 === 0}
           <div class="chipoint even">
-            <img src='{chakrasrc[i]}' />
+            <img src='{chakrasrc[i]}' on:click='set({ 
+              value: {
+                title:chakras[i],
+                img: chakrasrc[i],
+                sanskrit: sanskrit[i],
+                desc:description[i]}})' />
           </div>
         {:else}
           <div class="chipoint odd">
-            <img src='{chakrasrc[i]}' />
+            <img src='{chakrasrc[i]}' 
+            on:click='set({ 
+              value: {
+                title:chakras[i],
+                img: chakrasrc[i],
+                sanskrit: sanskrit[i],
+                desc:description[i]}})' />
           </div>
         {/if}
-          
       {/each}
   </div>
 </div>
-
+{#if value}
+<div class="desc">
+  <div class="descheader" on:click="set(moreinfo = !moreinfo)">
+    <div class="desctitle">
+      <h2>{ value.title }</h2>
+    </div>
+      <div class="descimg">
+        <img src="{value.img}" />
+      </div>
+  </div>
+    <div class="desctext">
+      <p>({value.sanskrit})</p>
+      <p>{value.desc}</p>
+    </div>
+</div>
+{/if}
 <script>
   // import Stars from './Stars.html';
   // export default {
@@ -45,6 +57,13 @@
   //     Stars
   //   }
   // };
+  export default {
+    // data () {
+    //   return {
+    //     const value = (i) => {console.log(i)},
+    //   };
+    // }
+  };
 </script>
 
 <!-- Include styles -->
@@ -58,25 +77,29 @@
   position: absolute;
 }
 
-.moonsrc {
+.moon img {
   -webkit-animation: clock 21s linear infinite;
   -moz-animation: clock 21s linear infinite;
   animation: clock 21s linear infinite;
   animation-direction: forward;
+  width: 100px;
+  height: 100px;
 }
 
-.tolight {
+.sun {
   margin-right: 0;
   align-self: right;
   position: absolute;
   right: 1em;
 }
 
-.lightsrc {
+.sun img {
   -webkit-animation: clock 21s linear infinite;
   -moz-animation: clock 21s linear infinite;
   animation: clock 21s linear infinite;
   animation-direction: linear;
+  width: 100px;
+  height: 100px;
 }
 
   
@@ -135,6 +158,68 @@
   animation: clock 21s linear infinite;
   animation-direction: reverse;
 }
+
+/* ul,
+li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+} */
+
+.desc {
+  margin-top: 21px;
+}
+
+.descheader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.desctitle {
+  line-height: 50px;
+  font-size: 1.2em;
+}
+
+.descimg {
+}
+
+.descimg img {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  widtth: 50px;
+  height: 50px;
+}
+
+.desctext {
+  text-align: center;
+  background-color:black;
+}
+
+.meditate {
+  text-align: center;
+}
+
+.action {
+  height: auto;
+  margin-top: 21px;
+  width: 50%;
+  background-color: purple;
+  font-family: "Philosopher", cursive;
+  font-size: 1.2em;
+  border-radius: 21px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 @-moz-keyframes clock {
   100% {
     -moz-transform: rotate(360deg);
@@ -227,6 +312,5 @@
   text-align: center;
   margin-top: 21px;
   margin-bottom: 21px;
-  color: white;
 }
 </style>

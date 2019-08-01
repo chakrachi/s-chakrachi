@@ -2,8 +2,8 @@ import App from './components/App.html';
 // import Rainbow from './components/Rainbow.html';
 
 const AppComponent = new App({
-  target: document.querySelector('#rainbow'),
-  data: { name: 'Chakra~Chi',  chakras: [
+  target: document.querySelector('#app'),
+  data: { name: 'Chakra~Chi',  planets: {sun: "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/sendtolight2.png?alt=media&token=daf94277-e92b-419a-a051-9958419391b0", moon: "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/moon.png?alt=media&token=0100ec94-6adc-4b00-984c-12ce21ec140a"}, chakras: [
     "Root",
     "Sacral",
     "Solar Plexus",
@@ -11,7 +11,7 @@ const AppComponent = new App({
     "Throat",
     "Third Eye",
     "Crown"
-  ].reverse(), chakrasrc: ["https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FRoot.png?alt=media&token=50221fcd-8483-40e9-b859-2fa35427c88b", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FSacral.png?alt=media&token=5ca168c2-216f-40bd-a557-040f8e026d65", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FSolar%20Plexus.png?alt=media&token=7e55088b-9d9f-4c73-a953-9452b28924b3", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FHeart.png?alt=media&token=bd55ed9d-c1fd-4efa-a4d5-95d6b84c9d23", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FThroat.png?alt=media&token=4adcb127-f252-472d-84de-630632b7163a", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FThird%20Eye.png?alt=media&token=28c6906f-fbd3-4693-bfa7-f7721258a21e","https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FCrown.png?alt=media&token=6b2a56c1-3ec9-4c67-9a61-730a9bdf1ee6"].reverse(), sanskrit: [
+  ].reverse(), value: null, chakrasrc: ["https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FRoot.png?alt=media&token=50221fcd-8483-40e9-b859-2fa35427c88b", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FSacral.png?alt=media&token=5ca168c2-216f-40bd-a557-040f8e026d65", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FSolar%20Plexus.png?alt=media&token=7e55088b-9d9f-4c73-a953-9452b28924b3", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FHeart.png?alt=media&token=bd55ed9d-c1fd-4efa-a4d5-95d6b84c9d23", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FThroat.png?alt=media&token=4adcb127-f252-472d-84de-630632b7163a", "https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FThird%20Eye.png?alt=media&token=28c6906f-fbd3-4693-bfa7-f7721258a21e","https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakras%2FCrown.png?alt=media&token=6b2a56c1-3ec9-4c67-9a61-730a9bdf1ee6"].reverse(), sanskrit: [
       "Muladhara",
       "Svadhishthana",
       "Manipura",
