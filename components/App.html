@@ -1,55 +1,97 @@
-<h1><span class="logo-font">{name}</span></h1>
-<!-- <Stars /> -->
-<!-- <Rainbow /> -->
+<div class="tolight" align="right">
+  <img
+    class="lightsrc"
+    src="https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/sendtolight2.png?alt=media&token=daf94277-e92b-419a-a051-9958419391b0"
+    width="100px"
+    height="100px"
+  />
+</div>
+<div class="moon" align="left">
+  <img
+    class="moonsrc"
+    src="https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/moon.png?alt=media&token=0100ec94-6adc-4b00-984c-12ce21ec140a"
+    width="100px"
+    height="100px"
+  />
+</div>
+<div class="logo">
+  {name}
+</div>
+
+<div class="stars"></div>
+<div class="twinkling"></div>
 
 <div class="rainbowwrapper">
-  <div class="chakrapoints">
-      {#each  chakrapoints as chakrapoint}
-        {chakrapoint}
-      <img
-          src=`../assets/chakras/${chakrapoint}.png`
-          width="50px"
-          height="50px"
-          (click)="console.log('click')"
-        />
+  <div class="chipoints">
+      {#each chakras as chi, i}
+        {#if (i+1)%2 === 0}
+          <div class="chipoint even">
+            <img src='{chakrasrc[i]}' />
+          </div>
+        {:else}
+          <div class="chipoint odd">
+            <img src='{chakrasrc[i]}' />
+          </div>
+        {/if}
+          
       {/each}
   </div>
 </div>
 
 <script>
-  import Stars from './Stars.html';
-  export default {
-    components: {
-      Stars
-    }
-  };
+  // import Stars from './Stars.html';
+  // export default {
+  //   components: {
+  //     Stars
+  //   }
+  // };
 </script>
 
 <!-- Include styles -->
 <style>
-  h1, h2 {
-    font-weight:300;
-    font-family: Lato;
-  }
-  .logo-font {
-    text-transform: lowercase;
-    font-size:2.5rem;
-    font-family: 'Rajdhani', sans-serif;
-    color: #aa1e1e;
-  }
+  
+.moon {
+  -webkit-animation: clock 21s linear infinite;
+  -moz-animation: clock 21s linear infinite;
+  animation: clock 21s linear infinite;
+  animation-direction: reverse;
+  position: absolute;
+}
 
+.moonsrc {
+  -webkit-animation: clock 21s linear infinite;
+  -moz-animation: clock 21s linear infinite;
+  animation: clock 21s linear infinite;
+  animation-direction: forward;
+}
+
+.tolight {
+  margin-right: 0;
+  align-self: right;
+  position: absolute;
+  right: 1em;
+}
+
+.lightsrc {
+  -webkit-animation: clock 21s linear infinite;
+  -moz-animation: clock 21s linear infinite;
+  animation: clock 21s linear infinite;
+  animation-direction: linear;
+}
+
+  
 .rainbowwrapper {
   width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  background-image: url("../assets/chakraPose3.png");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/chakra-62276.appspot.com/o/chakraPose3.png?alt=media&token=b564cae6-ce7c-4239-8207-b9a3519de0c9");
   background-size: auto 100%;
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
-.chakrapoints {
+.chipoints {
   border-radius: 25px;
   background: linear-gradient(
     rgba(238, 130, 238, 0.7),
@@ -64,7 +106,7 @@
   height: 350px;
 }
 
-.chakrapoint {
+.chipoint {
   align-items: center;
   text-align: center;
   list-style: none;
@@ -74,9 +116,11 @@
   margin-bottom: 0px;
 }
 
-.chakrapoint img {
+.chipoint img {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .odd {
@@ -123,5 +167,66 @@
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg);
   }
+}
+
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars {
+  background: #000
+    url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top
+    center;
+  z-index: -3;
+}
+
+.twinkling {
+  background: transparent
+    url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat
+    top center;
+  z-index: -2;
+
+  -moz-animation: move-twink-back 200s linear infinite;
+  -ms-animation: move-twink-back 200s linear infinite;
+  -o-animation: move-twink-back 200s linear infinite;
+  -webkit-animation: move-twink-back 200s linear infinite;
+  animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+  background: transparent
+    url(https://www.script-tutorials.com/demos/360/images/clouds3.png) repeat
+    top center;
+  z-index: -1;
+
+  -moz-animation: move-clouds-back 200s linear infinite;
+  -ms-animation: move-clouds-back 200s linear infinite;
+  -o-animation: move-clouds-back 200s linear infinite;
+  -webkit-animation: move-clouds-back 200s linear infinite;
+  animation: move-clouds-back 200s linear infinite;
+}
+
+@media screen and (min-width: 768px) {
+  .desc {
+    margin-top: 21px;
+    width: 50vh;
+    margin: 0 auto;
+  }
+}
+.logo {
+  font-size: 1.7em;
+  text-align: center;
+  margin-top: 21px;
+  margin-bottom: 21px;
+  color: white;
 }
 </style>
