@@ -105,6 +105,7 @@
   
 .rainbowwrapper {
   width: 100%;
+  height: 25%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
@@ -126,14 +127,18 @@
     rgba(255, 0, 0, 0.7)
   );
   width: 21%;
-  height: 350px;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .chipoint {
   align-items: center;
   text-align: center;
   list-style: none;
-  height: 50px;
+  //height: 50px;
   width: auto;
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -142,8 +147,8 @@
 .chipoint img {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
 }
 
 .odd {
@@ -255,8 +260,7 @@ li {
 }
 
 .stars,
-.twinkling,
-.clouds {
+.twinkling {
   position: absolute;
   top: 0;
   left: 0;
@@ -264,7 +268,7 @@ li {
   bottom: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  //display: block;
 }
 
 .stars {
@@ -285,19 +289,6 @@ li {
   -o-animation: move-twink-back 200s linear infinite;
   -webkit-animation: move-twink-back 200s linear infinite;
   animation: move-twink-back 200s linear infinite;
-}
-
-.clouds {
-  background: transparent
-    url(https://www.script-tutorials.com/demos/360/images/clouds3.png) repeat
-    top center;
-  z-index: -1;
-
-  -moz-animation: move-clouds-back 200s linear infinite;
-  -ms-animation: move-clouds-back 200s linear infinite;
-  -o-animation: move-clouds-back 200s linear infinite;
-  -webkit-animation: move-clouds-back 200s linear infinite;
-  animation: move-clouds-back 200s linear infinite;
 }
 
 @media screen and (min-width: 768px) {
